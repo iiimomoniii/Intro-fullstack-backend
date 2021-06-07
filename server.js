@@ -1,42 +1,53 @@
 const express = require('express');
 const app = express();
 
-app.get('/', function(req, res){
-    res.send('Hello World');
-})
+//middle ware (Content-Type => application/json)
+app.use(express.json())
+//middle ware (Content-Type => application/x-www-form-urlencoded)
+app.use(express.urlencoded({ extended: false })) //extended: true => nested data structure => {xxx : {yyy : zzz}}
+//middle ware (Content-type => multipart/form-data)
+var multer = require('multer')
+var upload = multer()
 
-//get method 
-//http://localhost:1150/sayhi
-//result 
-//Hi
-app.get('/sayhi', (req, res) => {
-    res.send('Hi');
-})
-
-//get method and return value
-//http://localhost:1150/sayhi/john
-//result 
-//Hi : john
-app.get('/sayhi/:name', (req, res) => {
-    res.send(`Hi : ${req.params.name}`);
-})
-
-//get method and return 2 values
-//http://localhost:1150/sayhi/john/wick
+//post method (params)
+//http://localhost:1150/product/1
 //result
-//Hi : john , wick
-app.get('/sayhi/:firstname/:lastname', (req, res) => {
-    res.send(`Hi : ${req.params.firstname} , ${req.params.lastname}`);
+//Product id is : 1
+app.post('/product/:id',(req, res) => {
+    res.send(`Product id is : ${req.params.id}`);
 })
 
-//get method and search by name
-//http://localhost:1150/product?name=macbook&price=10
+//post method (application/json)
+//postman CMS_NodeJS http://localhost:1150/productJSON/1
 //result
-//This macbook is 10 baht.
-app.get('/product/', (req, res) => {
-    res.send(`This ${req.query.name} is ${req.query.price} baht.`);
+//{ name: 'macbook', price: 10, stock: 999 }
+app.post('/productJSON/:id',(req, res) => {
+    console.log(req.body);
 })
 
+//post method (application/x-www-form-urlencoded)
+//postman CMS_NodeJS http://localhost:1150/productFormUrl/1
+//result
+//[Object: null prototype] {
+//    name: 'macbook',
+//    price: '999',
+//    stock: '777'
+// }
+app.post('/productFormUrl/:id',(req, res) => {
+    console.log(req.body);
+})
+
+//post method (multipart/form-data)
+//postman CMS_NodeJS http://localhost:1150/productMutipart/1
+//result
+//[Object: null prototype] {
+//     name: 'macbook',
+//     price: '1234',
+//     stock: '9874'
+//   }
+app.post('/productMutipart/:id',upload.none(),(req, res) => {
+    console.log(req.body);
+})
 
 
 const PORT = process.env.PORT || 1150
