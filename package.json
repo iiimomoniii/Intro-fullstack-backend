@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/iiimomoniii/Intro-fullstack-backend/issues"
   },
-  "homepage": "https://github.com/iiimomoniii/Intro-fullstack-backend#readme"
+  "homepage": "https://github.com/iiimomoniii/Intro-fullstack-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
