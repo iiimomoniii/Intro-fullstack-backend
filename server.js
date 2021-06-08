@@ -1,30 +1,13 @@
 const express = require('express');
 const app = express();
 
-const multer = require('multer')
-//import config
-const multerConfig = require('./config/multer_config')
-//accept keyUpload (photo)
-var upload = multer(multerConfig.config).single(multerConfig.keyUpload)
+//middle ware (Content-Type => application/json)
+app.use(express.json())
+//middle ware (Content-Type => application/x-www-form-urlencoded)
+app.use(express.urlencoded({ extended: false })) //extended: true => nested data structure => {xxx : {yyy : zzz}}
 
-//post method (multipart/form-data)
-//postman CMS_NodeJS http://localhost:1150/productUploadImage/1
-app.post('/productUploadImage/:id' ,(req, res) => {
-
-    upload(req, res, (err)=> {
-        //condition 
-        if(err instanceof multer.MulterError){
-            console.log(`error : ${JSON.stringify(err)}`);
-        } else if (err) {
-            console.log(`error : ${JSON.stringify(err)}`);
-        }
-        //condition for check filename 
-        const fileName = req.file ? req.file.fieldname : undefined;
-        res.send(`POST Product: ${req.params.id}, ${fileName}`);
-    })
-   
-
-})
+//use product_controller 
+app.use(require('./controller/product_controller'))
 
 
 const PORT = process.env.PORT || 1150
