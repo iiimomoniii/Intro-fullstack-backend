@@ -7,6 +7,29 @@ const multer = require('multer')
 const multerConfig = require('../config/multer_config')
 //accept keyUpload (photo)
 const upload = multer(multerConfig.config).single(multerConfig.keyUpload)
+//use data from each model
+const db = require('../models')
+
+//get method
+//postman CMS_NodeJS http://localhost:1150/product
+router.get('/product', async (req, res) => {
+    try {
+        const result = await db.Products.findAll(
+            {
+            //sort data desc
+            order : [
+                ['id', 'DESC']
+            ],
+            //select some column
+            //attributes: ['name','image']
+            }      
+        );
+            
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message : error.message });
+    }
+});
 
 //post method (multipart/form-data)
 //postman CMS_NodeJS http://localhost:1150/productUploadImage/1

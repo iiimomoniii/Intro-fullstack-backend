@@ -18,6 +18,19 @@ if (config.storage) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+//check connection to database
+const init = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+  
+}
+
+init();
+
 fs
   .readdirSync(__dirname)
   .filter(file => {
