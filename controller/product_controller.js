@@ -22,10 +22,28 @@ router.get('/product', async (req, res) => {
             ],
             //select some column
             //attributes: ['name','image']
-            }      
+            }
         );
-            
         res.status(200).json(result);
+    } catch (error) {
+        res.status(500).json({ message : error.message });
+    }
+});
+
+//get method with param
+//postman CMS_NodeJS http://localhost:1150/product/1
+router.get('/product/:id', async (req, res) => {
+    try {
+        const result = await db.Products.findOne({
+            where: {
+                'id': req.params.id
+            }
+        });
+        if(result){
+            res.status(200).json(result);
+        } else {
+            res.status(404).json({ message : 'Product not found' })
+        }
     } catch (error) {
         res.status(500).json({ message : error.message });
     }
