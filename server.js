@@ -1,6 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
+//middle ware (cors allow all connection)
+app.use(cors())
 //middle ware (Content-Type => application/json)
 app.use(express.json())
 //middle ware (Content-Type => application/x-www-form-urlencoded)
