@@ -2,20 +2,23 @@
   "development": {
     "dialect": "sqlite",
     "storage" : "./dev.sqlite3"
-    
   },
-  "test": {
+  "staging": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "password": "Tel1234!",
+    "database": "cms",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port" : "1112",
+    "operatorsAliases" : 0
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "sa",
+    "password": "Tel1234!",
+    "database": "cms",
+    "host": "localhost",
+    "dialect": "mssql",
+    "port" : "1113",
+    "operatorsAliases" : 0
   }
 }

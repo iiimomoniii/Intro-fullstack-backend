@@ -9,7 +9,6 @@ app.use(express.urlencoded({ extended: false })) //extended: true => nested data
 //use product_controller 
 app.use(require('./controller/product_controller'))
 
-
 const PORT = process.env.PORT || 1150
 
 app.listen(PORT, () => {
