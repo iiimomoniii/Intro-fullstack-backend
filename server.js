@@ -2,8 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+const corsOptions = {
+    origin: ['http://example.com','https://www.w3schools.com','http://localhost:4200'],
+    optionsSuccessStatus:200
+}
+
 //middle ware (cors allow all connection)
-app.use(cors())
+app.use(cors(corsOptions))
 //middle ware (Content-Type => application/json)
 app.use(express.json())
 //middle ware (Content-Type => application/x-www-form-urlencoded)
