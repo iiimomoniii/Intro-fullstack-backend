@@ -31,8 +31,8 @@ router.get('/product', async (req, res) => {
 });
 
 //get method with param
-//postman CMS_NodeJS http://localhost:1150/findbyproductid/1
-router.get('/findbyproductid/:id', async (req, res) => {
+//postman CMS_NodeJS http://localhost:1150/product/1
+router.get('/product/:id', async (req, res) => {
     try {
         const result = await db.Products.findOne({
             where: {
@@ -50,8 +50,8 @@ router.get('/findbyproductid/:id', async (req, res) => {
 });
 
 //post method (multipart/form-data)
-//postman CMS_NodeJS http://localhost:1150/addproduct
-router.post('/addproduct', (req, res) => {
+//postman CMS_NodeJS http://localhost:1150/product
+router.post('/product', (req, res) => {
 
     upload(req, res, async (err) => {
         //condition 
@@ -78,8 +78,8 @@ router.post('/addproduct', (req, res) => {
 })
 
 //put method (multipart/form-data)
-//postman CMS_NodeJS http://localhost:1150/editproduct/23
-router.put('/editproduct/:id', async (req, res) => {
+//postman CMS_NodeJS http://localhost:1150/product/23
+router.put('/product/:id', async (req, res) => {
     try {
         const result = await db.Products.findOne({
             where: {
@@ -133,7 +133,7 @@ function updateProduct (req, res, product) {
 
 //delete method (multipart/form-data)
 //postman CMS_NodeJS http://localhost:1150/editproduct/23
-router.delete('/deleteproduct/:id', async (req, res) => {
+router.delete('/product/:id', async (req, res) => {
     try {
         const deleted = await db.Products.destroy({
             where: {
