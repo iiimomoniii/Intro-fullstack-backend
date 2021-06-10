@@ -6,7 +6,8 @@ const corsOptions = {
     origin: ['http://example.com','https://www.w3schools.com','http://localhost:4200'],
     optionsSuccessStatus:200
 }
-
+//middle ware (use images)
+app.use('/images', express.static('images'))
 //middle ware (cors allow all connection)
 app.use(cors(corsOptions))
 //middle ware (Content-Type => application/json)
