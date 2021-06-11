@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false })) //extended: true => nested data structure => {xxx : {yyy : zzz}}
 
 //use product_controller 
-app.use(require('./controller/product_controller'))
+app.use('/api', require('./controller/product_controller'))
 
 const PORT = process.env.PORT || 1150
 
