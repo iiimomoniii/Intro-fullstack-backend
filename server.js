@@ -6,6 +6,11 @@ const corsOptions = {
     origin: ['http://example.com','https://www.w3schools.com','http://localhost:4200'],
     optionsSuccessStatus:200
 }
+
+//swagger
+const swaggerUI = require('swagger-ui-express')
+const swaggerJsDoc = require('swagger-jsdoc')
+
 //middle ware (use images)
 app.use('/images', express.static('images'))
 //middle ware (cors allow all connection)
@@ -26,3 +31,25 @@ app.listen(PORT, () => {
     console.log(`App listening on port ${env}`);
     console.log(`Press Ctrl+C to quit.`);
 })
+
+//config for swagger
+const options = {
+    definition : {
+        openapi: "3.0.0",
+        info: {
+            title: "Library API",
+            version: "1.0.0",
+            description: "A simple Express Library API"
+        },
+        servers: [
+            {
+                url: `http://localhost:${PORT}`
+            }
+        ],
+    },
+    apis : ["./controller/*.js"]
+};
+
+const specs = swaggerJsDoc(options)
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs))

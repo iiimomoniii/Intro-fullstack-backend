@@ -23,7 +23,7 @@ module.exports = multerConfig = {
             }
         }),
         //limit file size
-        limits: {fileSize : 1024 * 1024 * 5},
+        limits: {fileSize : 1024 * 1024 * 5 }, //1 = 1mb
         //filter upload only image
         fileFilter: (req, file, next) => {
             const image = file.mimetype.startsWith('image/')

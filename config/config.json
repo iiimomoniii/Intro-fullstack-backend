@@ -20,5 +20,14 @@
     "dialect": "mssql",
     "port" : "1113",
     "operatorsAliases" : 0
+  },
+  "uat": {
+    "username": "sql6419012",
+    "password": "kqYKmL8TcM",
+    "database": "sql6419012",
+    "host": "sql6.freemysqlhosting.net",
+    "dialect": "mysql",
+    "port" : "3306",
+    "operatorsAliases" : 0
   }
 }

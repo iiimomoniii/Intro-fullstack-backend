@@ -24,6 +24,8 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
     "sqlite3": "^5.0.2",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6",
     "tedious": "^11.0.9"
   }
 }
