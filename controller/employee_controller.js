@@ -47,6 +47,7 @@ const db = require('../models')
  *           description: The employee salary
  *         phone:
  *           type: string
+ *           description: The employee phone
  *         updatedAt:
  *           type: string
  *           description: The employee updatedAt
@@ -331,7 +332,7 @@ function updateEmployee (req, res, employee) {
  * @swagger
  * /api/employee/{id}:
  *   delete:
- *     summary: delete a employee
+ *     summary: Delete a employee
  *     tags: [Employee]
  *     parameters:
  *       - in: path

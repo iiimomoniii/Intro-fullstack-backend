@@ -303,7 +303,7 @@ function updateProduct (req, res, product) {
  * @swagger
  * /api/product/{id}:
  *   delete:
- *     summary: delete a product
+ *     summary: Delete a product
  *     tags: [Product]
  *     parameters:
  *       - in: path
