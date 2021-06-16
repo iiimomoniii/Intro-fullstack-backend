@@ -19,16 +19,16 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
-    Image: DataTypes.STRING,
+    image: DataTypes.STRING,
     salary: DataTypes.DECIMAL
   }, {
     sequelize,
     modelName: 'Employees',
-    underscoredAll : true,
     underscored: true,
-    freezeTableName: true,
-    createAt: "created_At",
-    updateAt: "updated_At"
+    underscoredAll: true,
+    freezeTableName:true,
+    createAt: "created_at",
+    updateAt: "updated_at"
   });
   return Employees;
 };

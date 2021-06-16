@@ -4,8 +4,8 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
    //add filed validate for each item in data object
    data.map(item=> {
-    item.Created_At = new Date()
-    item.Updated_At = new Date()
+    item.created_At = new Date()
+    item.updated_At = new Date()
   })
   //insert data into sqlite
   await queryInterface.bulkInsert('Employees', data, {});

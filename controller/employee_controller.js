@@ -11,7 +11,7 @@ const db = require('../models')
  * @swagger
  * components:
  *   schemas:
- *     Employees:
+ *     Employee:
  *       type: object
  *       required:
  *         - first_name
