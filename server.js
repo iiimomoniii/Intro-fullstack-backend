@@ -22,6 +22,8 @@ app.use(express.urlencoded({ extended: false })) //extended: true => nested data
 
 //use product_controller 
 app.use('/api', require('./controller/product_controller'))
+//use company_controller 
+app.use('/api', require('./controller/company_controller'))
 
 const PORT = process.env.PORT || 1150
 
