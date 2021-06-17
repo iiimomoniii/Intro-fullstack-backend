@@ -20,6 +20,9 @@ app.use(express.json())
 //middle ware (Content-Type => application/x-www-form-urlencoded)
 app.use(express.urlencoded({ extended: false })) //extended: true => nested data structure => {xxx : {yyy : zzz}}
 
+//use authen_controller
+app.use('/api/authen', require('./controller/authen_controller'))
+
 //use product_controller 
 app.use('/api', require('./controller/product_controller'))
 
