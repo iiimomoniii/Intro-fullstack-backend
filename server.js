@@ -20,10 +20,12 @@ app.use(express.json())
 //middle ware (Content-Type => application/x-www-form-urlencoded)
 app.use(express.urlencoded({ extended: false })) //extended: true => nested data structure => {xxx : {yyy : zzz}}
 
-//use product_controller 
+//use product_controller
 app.use('/api', require('./controller/product_controller'))
-//use company_controller 
+//use company_controller
 app.use('/api', require('./controller/company_controller'))
+//use employee_controller
+app.use('/api', require('./controller/employee_controller'))
 
 const PORT = process.env.PORT || 1150
 
