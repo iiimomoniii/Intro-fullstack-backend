@@ -10,6 +10,10 @@ sequelize model:generate --name Products --attributes "name:string, image:string
 //generate seed for mockup data example Products
 sequelize seed:generate --name seed-Products
 
+//Users
+sequelize model:generate --name Users --attributes "username:string, password:string, level:string" --underscored true
+//Users
+sequelize seed:generate --name seed-Users
 
 //generate database
 sequelize db:migrate
