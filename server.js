@@ -12,7 +12,7 @@ const swaggerUI = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 
 //middle ware (use images)
-app.use('/images', express.static('images'))
+app.use('/api/images', express.static('images'))
 //middle ware (cors allow all connection)
 app.use(cors(corsOptions))
 //middle ware (Content-Type => application/json)
