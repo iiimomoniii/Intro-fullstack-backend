@@ -34,7 +34,7 @@ next();
 //middle ware (use images)
 app.use('/api/images', express.static('images'))
 //middle ware (cors allow all connection)
-//app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 //middle ware (Content-Type => application/json)
 app.use(express.json())
 //middle ware (Content-Type => application/x-www-form-urlencoded)
