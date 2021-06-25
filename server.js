@@ -11,10 +11,30 @@ const corsOptions = {
 const swaggerUI = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 
+// Add headers
+app.use(function (req, res, next) {
+
+// Website you wish to allow to connect
+res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+
+// Request methods you wish to allow
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+// Request headers you wish to allow
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+// Set to true if you need the website to include cookies in the requests sent
+// to the API (e.g. in case you use sessions)
+res.setHeader('Access-Control-Allow-Credentials', true);
+
+// Pass to next layer of middleware
+next();
+});
+
 //middle ware (use images)
 app.use('/api/images', express.static('images'))
 //middle ware (cors allow all connection)
-app.use(cors(corsOptions))
+//app.use(cors(corsOptions))
 //middle ware (Content-Type => application/json)
 app.use(express.json())
 //middle ware (Content-Type => application/x-www-form-urlencoded)
